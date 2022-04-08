@@ -11,18 +11,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
-@RequestMapping("/signup")
 public class SignupController {
     private UserService userService;
 
     public SignupController(UserService userService) {
         this.userService = userService;
     }
-    @GetMapping()
+    @GetMapping("/signup")
     public String signupPage(@ModelAttribute("createUser") User user){
         return "signup";
     }
-    @PostMapping()
+    @PostMapping("/signup")
     public String signupUser(@ModelAttribute("createUser") User user, Model model, RedirectAttributes redirectAttributes) {
         String signupError = null;
 
@@ -36,7 +35,7 @@ public class SignupController {
             }
         }
         if(signupError == null) {
-            redirectAttributes.addFlashAttribute("successMessage", true);
+            redirectAttributes.addFlashAttribute("signupSuccess", "Sign up successfully");
             return "redirect:/login";
         } else
             model.addAttribute("signupError", true);
