@@ -31,11 +31,11 @@ public class SignupController {
         if(signupError == null) {
             int rowAdded = userService.createUser(user);
             if(rowAdded < 0) {
-                signupError = "There was an error, please tru again!";
+                signupError = "There was an error, please try again!";
             }
         }
         if(signupError == null) {
-            redirectAttributes.addFlashAttribute("signupSuccess", "Sign up successfully");
+            redirectAttributes.addFlashAttribute("successMessage", true);
             return "redirect:/login";
         } else
             model.addAttribute("signupError", true);

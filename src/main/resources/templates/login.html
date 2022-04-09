@@ -3,9 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
         <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/bootstrap.min.css}">
-
         <title>Login</title>
     </head>
     <body class="p-3 mb-2 bg-light text-black">
@@ -20,7 +18,7 @@
                     <div th:if="${logout}" class="alert alert-success">
                         You have been logged out
                     </div>
-                    <div th:if="${successMessage} == 'Sign Up Successfully'" class="alert alert-success">
+                    <div th:if="${successMessage}" class="alert alert-success">
                         You've successfully signed up!
                     </div>
 
@@ -34,7 +32,7 @@
                         <input type="password" class="form-control" name="password" id="inputPassword" placeholder="Enter Password"
                                maxlength="20" required>
                     </div>
-                    <button type="submit" class="btn btn-primary" id="login-button">Login</button>
+                    <button type="submit" class="btn btn-primary" >Login</button>
                 </form>
             <div class="form-group" style="margin-top: 0.5em;">
                 <label><a th:href="@{/signup}">Click here to sign up</a></label>
