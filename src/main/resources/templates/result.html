@@ -3,9 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
         <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/bootstrap.min.css}">
-
         <title>Result</title>
     </head>
 
@@ -14,6 +12,10 @@
             <div th:if="${success==true}" class="alert alert-success fill-parent">
                 <h1 class="display-5" id="success">Success</h1>
                 <span>Your changes were successfully saved. Click <a th:href="@{/home}">here</a> to continue.</span>
+            </div>
+            <div th:if="${delete==true}" class="alert alert-success fill-parent">
+                <h1 class="display-5" >Delete</h1>
+                <span>Your changes were successfully deleted. Click <a th:href="@{/home}">here</a> to continue.</span>
             </div>
             <div th:if="${fail==true}" class="alert alert-danger fill-parent">
                 <h1 class="display-5">Error</h1>

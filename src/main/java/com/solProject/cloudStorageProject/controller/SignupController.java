@@ -22,11 +22,12 @@ public class SignupController {
         return "signup";
     }
     @PostMapping("/signup")
-    public String signupUser(@ModelAttribute("createUser") User user, Model model, RedirectAttributes redirectAttributes) {
+    public String signupUser(@ModelAttribute("createUser") User user, Model model) {
         String signupError = null;
 
         if(!userService.usernameIsAvailable(user.getUsername())) {
-            signupError = "Username already exists! please try to register another name";
+            model.addAttribute("signupError", true);
+            return "signup";
         }
         if(signupError == null) {
             int rowAdded = userService.createUser(user);
@@ -35,8 +36,8 @@ public class SignupController {
             }
         }
         if(signupError == null) {
-            redirectAttributes.addFlashAttribute("successMessage", true);
-            return "redirect:/login";
+            model.addAttribute("successMessage", true);
+            return "signup";
         } else
             model.addAttribute("signupError", true);
 

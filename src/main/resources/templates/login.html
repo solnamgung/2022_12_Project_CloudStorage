@@ -12,14 +12,8 @@
                 <form action="#" th:action="@{'/login'}" method="POST">
                     <div th:if="${param.error}" class="alert alert-danger">
                         <div>
-                            Invalid username or password
+                            Invalid username or password!
                         </div>
-                    </div>
-                    <div th:if="${logout}" class="alert alert-success">
-                        You have been logged out
-                    </div>
-                    <div th:if="${successMessage}" class="alert alert-success">
-                        You've successfully signed up!
                     </div>
 
                     <div class="form-group">
@@ -34,6 +28,7 @@
                     </div>
                     <button type="submit" class="btn btn-primary" >Login</button>
                 </form>
+
             <div class="form-group" style="margin-top: 0.5em;">
                 <label><a th:href="@{/signup}">Click here to sign up</a></label>
             </div>

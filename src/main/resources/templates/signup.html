@@ -15,13 +15,13 @@
 
                 <h1 class="display-5">Sign Up</h1>
                  <form action="#" th:action="@{/signup}"  th:object="${createUser}" method="POST">
-                    <div th:if="${signupSuccess}" class="alert alert-success">
-                        You successfully signed up! Please continue to the <a th:href="@{/login}" >login</a> page.
-                    </div>
-                    <div th:if="${signupError}" class="alert alert-danger">
-                        <span th:text="${signupError}" ></span>
-                    </div>
-                    <div class="form-row">
+                     <div th:if="${successMessage}" class="alert alert-success">
+                         You've successfully signed up!<a th:href="@{/login}" > login </a> page.
+                     </div>
+                     <div th:if="${signupError}" class="alert alert-danger">
+                         Username already exists! please try to register another name!
+                     </div>
+                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputFirstName">First Name</label>
                             <input th:field="*{firstname}" type="input" name="firstname" class="form-control" id="inputFirstName"
