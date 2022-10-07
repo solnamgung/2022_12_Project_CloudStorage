@@ -18,6 +18,11 @@ public class EncryptionService {
     public String encryptValue(String data, String key) {
         byte[] encryptedValue = null;
 
+        /**
+         *
+         Ciphers, also called encryption algorithms, are systems for encrypting and decrypting data.
+         A cipher converts the original message, called plaintext, into ciphertext using a key to determine how it is done.
+         */
         try {
             Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
             SecretKey secretKey = new SecretKeySpec(key.getBytes(), "AES");

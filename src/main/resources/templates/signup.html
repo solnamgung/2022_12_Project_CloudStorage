@@ -14,39 +14,40 @@
                 </div>
 
                 <h1 class="display-5">Sign Up</h1>
-                 <form action="#" th:action="@{/signup}"  th:object="${createUser}" method="POST">
-                     <div th:if="${successMessage}" class="alert alert-success">
-                         You've successfully signed up!<a th:href="@{/login}" > login </a> page.
-                     </div>
-                     <div th:if="${signupError}" class="alert alert-danger">
-                         Username already exists! please try to register another name!
-                     </div>
-                     <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputFirstName">First Name</label>
-                            <input th:field="*{firstname}" type="input" name="firstname" class="form-control" id="inputFirstName"
-                                   placeholder="Enter First Name" maxlength="20" required>
+                    <form action="#" th:action="@{/signup}"  th:object="${createUser}" method="POST">
+                         <div th:if="${successMessage}" class="alert alert-success">
+                             You've successfully signed up!<a th:href="@{/login}" > login </a> page.
+                         </div>
+                         <div th:if="${signupError}" class="alert alert-danger">
+                             Username already exists! please try to register another name!
+                         </div>
+
+                         <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputFirstName">First Name</label>
+                                <input th:field="*{firstname}" type="input" name="firstname" class="form-control" id="inputFirstName"
+                                       placeholder="Enter First Name" maxlength="20" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputLastName">Last Name</label>
+                                <input th:field="*{lastname}" type="input" name="lastname" class="form-control" id="inputLastName"
+                                       placeholder="Enter Last Name" maxlength="20" required>
+                            </div>
                         </div>
-                        <div class="form-group col-md-6">
-                            <label for="inputLastName">Last Name</label>
-                            <input th:field="*{lastname}" type="input" name="lastname" class="form-control" id="inputLastName"
-                                   placeholder="Enter Last Name" maxlength="20" required>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputUsername">Username</label>
+                                <input th:field="*{username}" type="input" name="username" class="form-control" id="inputUsername" placeholder="Enter Username"
+                                       maxlength="20" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputPassword">Password</label>
+                                <input th:field="*{password}" type="password" name="password" class="form-control" id="inputPassword"
+                                       placeholder="Enter Password" maxlength="20" required>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputUsername">Username</label>
-                            <input th:field="*{username}" type="input" name="username" class="form-control" id="inputUsername" placeholder="Enter Username"
-                                   maxlength="20" required>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="inputPassword">Password</label>
-                            <input th:field="*{password}" type="password" name="password" class="form-control" id="inputPassword"
-                                   placeholder="Enter Password" maxlength="20" required>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn btn-primary" id="buttonSignUp">Sign Up</button>
-                 </form>
+                        <button type="submit" class="btn btn-primary" id="buttonSignUp">Sign Up</button>
+                    </form>
             </div>
     </body>
 </html>
