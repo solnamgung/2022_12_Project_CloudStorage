@@ -2,12 +2,12 @@ package com.solProject.cloudStorageProject.service;
 
 import com.solProject.cloudStorageProject.mapper.UserMapper;
 import com.solProject.cloudStorageProject.model.User;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-
 import java.security.SecureRandom;
 import java.util.Base64;
 
-@Service
+@Component
 public class UserService {
     private UserMapper userMapper;
     private HashService hashService;
@@ -25,9 +25,11 @@ public class UserService {
         random.nextBytes(salt);
 
         String encodeSalt = Base64.getEncoder().encodeToString(salt);
+
         String hashedPassword = hashService.getHashedValue(user.getPassword(), encodeSalt);
         user.setSalt(encodeSalt);
         user.setPassword(hashedPassword);
+
         return userMapper.create(user);
     }
     public User getUser(String username) {

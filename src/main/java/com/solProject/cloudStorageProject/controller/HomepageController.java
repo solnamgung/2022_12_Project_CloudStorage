@@ -40,7 +40,6 @@ public class HomepageController {
         model.addAttribute("credentials", credentialList);
         model.addAttribute("encryptionService", encryptionService);
 
-
         return "home";
 
     }
