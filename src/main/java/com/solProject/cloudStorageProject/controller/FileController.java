@@ -4,6 +4,8 @@ import com.solProject.cloudStorageProject.model.File;
 import com.solProject.cloudStorageProject.model.User;
 import com.solProject.cloudStorageProject.service.FileService;
 import com.solProject.cloudStorageProject.service.UserService;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
@@ -22,6 +24,7 @@ public class FileController {
     private FileService fileService;
     private UserService userService;
 
+    @Autowired
     @Value("${files.max-file-size}")
     private DataSize maximumFileSize;
 
